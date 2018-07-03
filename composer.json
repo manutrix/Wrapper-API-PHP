@@ -1,4 +1,9 @@
 {
-    "name": "cakemail/wrapper-api-php"
+    "name": "cakemail/wrapper-api-php",
+    "autoload": {
+        "psr-0": {
+            "Cakemail": "src/"
+        }
+    }
 }
 

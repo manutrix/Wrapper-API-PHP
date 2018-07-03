@@ -1,5 +1,7 @@
 <?php 
 
+namespace Cakemail;
+
 class CakeAPI {
     
   private $apikey;
@@ -24,17 +26,16 @@ class CakeAPI {
       $result = curl_exec($ch);
 
       if ($result === false) {
-
-        throw new Exception('Curl error: ' . curl_error($ch));
+        throw new \Exception('Curl error: ' . curl_error($ch));
 
       } else {
 
         if (!$result = json_decode($result)) {
-          throw new Exception('API Key Validation Error for ' . $this->apikey . '. Contact your administrator!');
+          throw new \Exception('API Key Validation Error for ' . $this->apikey . '. Contact your administrator!');
         } 
 
         if ($result->status != 'success') {
-          throw new Exception($result->data);
+          throw new \Exception($result->data);
         }
 
       }
